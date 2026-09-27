@@ -1,10 +1,16 @@
 # Orbit
 
+[![Vercel](https://img.shields.io/badge/Vercel-Live-000000?logo=vercel)](https://orbit-psi-six-79.vercel.app)
+
 A reusable, fast Astro marketing/landing page starter. Design system inspired by the
 open-wa.org landing page (big editorial type, one accent colour, grid background,
 subtle motion, light + dark themes). All markup, CSS and JS here are written fresh.
 
-Repository: https://github.com/rishabh0282/orbit
+**[Live demo](https://orbit-psi-six-79.vercel.app)** · **[Repository](https://github.com/rishabh0282/orbit)**
+
+## Preview
+
+[![Orbit landing page preview](public/preview.jpg)](https://orbit-psi-six-79.vercel.app)
 
 ## Run
 ```bash

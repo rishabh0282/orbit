@@ -12,7 +12,7 @@ export const site = {
   name: 'Orbit',
   tagline: 'The open platform for building fast',
   description: 'Orbit is a self-hosted platform that gives developers full control, a clean architecture and zero lock-in.',
-  url: 'https://rishabh0282.github.io/orbit',
+  url: 'https://orbit-psi-six-79.vercel.app',
   logo: '/logo.svg',
   ogImage: '/og.png',
 
