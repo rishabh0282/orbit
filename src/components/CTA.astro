@@ -1,0 +1,23 @@
+---
+import { site } from '../site.config';
+import Icon from './Icon.astro';
+const c = site.cta;
+---
+<section class="section">
+  <div class="container">
+    <div class="cta reveal">
+      <div class="grid-bg"></div>
+      <h2 class="section-title">{c.title}</h2>
+      <p class="lead">{c.lead}</p>
+      <div class="cta__actions">
+        <a class="btn btn--primary" href={c.primary.href}>{c.primary.label} <Icon name="arrow" /></a>
+        <a class="btn btn--ghost" href={c.secondary.href}>{c.secondary.label}</a>
+      </div>
+    </div>
+  </div>
+</section>
+<style>
+  .cta { position: relative; isolation: isolate; overflow: hidden; text-align: center; padding: clamp(56px, 8vw, 96px) 24px; border-radius: calc(var(--r-lg) * 2); background: radial-gradient(ellipse at 50% 0%, var(--accent-soft), transparent 70%), var(--surface-2); border: 1px solid var(--line-soft); }
+  .cta .lead { max-width: 520px; margin-inline: auto; }
+  .cta__actions { display: flex; justify-content: center; flex-wrap: wrap; gap: 12px; margin-top: 32px; }
+</style>

@@ -1,0 +1,18 @@
+---
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/Navbar.astro';
+---
+<Base title="Page not found">
+  <Navbar />
+  <main id="main" class="container nf">
+    <div class="eyebrow">404</div>
+    <h1>Page not found</h1>
+    <p class="lead">The page you’re looking for doesn’t exist.</p>
+    <a class="btn btn--primary" href="/">Back home</a>
+  </main>
+</Base>
+<style>
+  .nf { min-height: 70vh; display: flex; flex-direction: column; justify-content: center; align-items: flex-start; }
+  h1 { font-size: var(--t-hero); }
+  .btn { margin-top: 32px; }
+</style>

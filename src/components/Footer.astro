@@ -1,0 +1,30 @@
+---
+import { site } from '../site.config';
+const f = site.footer;
+---
+<footer class="footer">
+  <div class="container footer__grid">
+    <div>
+      <a class="footer__brand" href="/"><img src={site.logo} alt="" width="26" height="26" />{site.name}</a>
+      <p class="footer__desc">{site.description}</p>
+    </div>
+    {f.columns.map((col) => (
+      <div>
+        <h4>{col.title}</h4>
+        <ul>{col.links.map((l) => <li><a href={l.href}>{l.label}</a></li>)}</ul>
+      </div>
+    ))}
+  </div>
+  <div class="container footer__bottom">{f.copyright}</div>
+</footer>
+<style>
+  .footer { border-top: 1px solid var(--line-soft); padding-top: 64px; font-size: var(--t-sm); }
+  .footer__grid { display: grid; grid-template-columns: 2fr repeat(3, 1fr); gap: 40px; }
+  .footer__brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.125rem; }
+  .footer__desc { color: var(--text-3); margin-top: 14px; max-width: 34ch; }
+  h4 { margin: 0 0 14px; font: 600 var(--t-xs)/1 var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); }
+  ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 10px; }
+  a:hover { color: var(--accent-strong); }
+  .footer__bottom { margin-top: 56px; padding-block: 24px; border-top: 1px solid var(--line-soft); color: var(--text-3); }
+  @media (max-width: 800px) { .footer__grid { grid-template-columns: 1fr 1fr; } .footer__grid > :first-child { grid-column: 1 / -1; } }
+</style>

@@ -1,0 +1,38 @@
+---
+import '../styles/global.css';
+import { site } from '../site.config';
+interface Props { title?: string; description?: string }
+const { title = `${site.name} — ${site.tagline}`, description = site.description } = Astro.props;
+const canonical = new URL(Astro.url.pathname, site.url);
+---
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <link rel="icon" type="image/svg+xml" href={site.logo} />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={new URL(site.ogImage, site.url)} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- Set theme before paint to avoid a flash -->
+    <script is:inline>
+      document.documentElement.classList.remove('no-js');
+      const t = localStorage.getItem('theme') || (matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      document.documentElement.dataset.theme = t;
+    </script>
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+    <div class="scroll-progress" aria-hidden="true"></div>
+    <slot />
+    <script>import '../scripts/main.ts';</script>
+    <style is:global>
+      .scroll-progress { position: fixed; top: 0; left: 0; height: 3px; width: 100%; background: var(--accent); transform-origin: 0 50%; transform: scaleX(var(--p, 0)); z-index: 60; }
+    </style>
+  </body>
+</html>

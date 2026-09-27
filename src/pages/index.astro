@@ -1,0 +1,28 @@
+---
+// Compose the landing page. Reorder, remove or duplicate sections freely.
+import Base from '../layouts/Base.astro';
+import Navbar from '../components/Navbar.astro';
+import Hero from '../components/Hero.astro';
+import Stats from '../components/Stats.astro';
+import Features from '../components/Features.astro';
+import Compare from '../components/Compare.astro';
+import Quickstart from '../components/Quickstart.astro';
+import TechStack from '../components/TechStack.astro';
+import FAQ from '../components/FAQ.astro';
+import CTA from '../components/CTA.astro';
+import Footer from '../components/Footer.astro';
+---
+<Base>
+  <Navbar />
+  <main id="main">
+    <Hero />
+    <Stats />
+    <Features />
+    <Compare />
+    <Quickstart />
+    <TechStack />
+    <FAQ />
+    <CTA />
+  </main>
+  <Footer />
+</Base>

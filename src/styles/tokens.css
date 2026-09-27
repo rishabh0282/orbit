@@ -1,0 +1,77 @@
+/* ============================================================
+   Design tokens — rebrand here.
+   Change --accent / --accent-strong and everything follows,
+   including dark mode.
+   ============================================================ */
+:root {
+  /* Brand */
+  --accent: #25d366;          /* main brand colour */
+  --accent-strong: #067a38;   /* readable accent for text on light bg */
+  --accent-soft: color-mix(in srgb, var(--accent) 12%, transparent);
+  --accent-line: color-mix(in srgb, var(--accent) 30%, transparent);
+  --on-accent: #06210f;       /* text on accent buttons */
+
+  /* Surfaces */
+  --bg: #ffffff;
+  --surface: #ffffff;
+  --surface-2: #f4f5f5;
+  --surface-3: #ebeded;
+
+  /* Text */
+  --text: #16191a;
+  --text-2: #464a4b;
+  --text-3: #6b7070;
+
+  /* Lines */
+  --line: #d4d7d7;
+  --line-soft: #e6e8e8;
+
+  /* Code */
+  --code-bg: #0f172a;
+  --code-text: #e2e8f0;
+
+  /* Radii */
+  --r-sm: 4px;
+  --r-md: 8px;
+  --r-lg: 14px;
+  --r-pill: 999px;
+
+  /* Type */
+  --font-sans: 'Plus Jakarta Sans Variable', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono Variable', ui-monospace, 'Cascadia Code', monospace;
+  --t-hero: clamp(3rem, 8.5vw, 6.75rem);
+  --t-section: clamp(2rem, 4.6vw, 3rem);
+  --t-lead: clamp(1.0625rem, 1.6vw, 1.25rem);
+  --t-body: 1rem;
+  --t-sm: 0.875rem;
+  --t-xs: 0.75rem;
+
+  /* Layout */
+  --maxw: 1240px;
+  --gutter: clamp(20px, 4vw, 32px);
+  --section-y: clamp(80px, 11vw, 150px);
+
+  /* Motion */
+  --ease: cubic-bezier(0.16, 1, 0.3, 1);
+  --fast: 0.2s;
+  --slow: 0.6s;
+
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.04), 0 8px 24px rgb(0 0 0 / 0.06);
+  color-scheme: light;
+}
+
+[data-theme='dark'] {
+  --accent-strong: color-mix(in srgb, var(--accent) 80%, white);
+  --bg: #0a0f1c;
+  --surface: #111829;
+  --surface-2: #172036;
+  --surface-3: #202b46;
+  --text: #eef2f8;
+  --text-2: #a2adc2;
+  --text-3: #8c98ae;
+  --line: rgb(255 255 255 / 0.12);
+  --line-soft: rgb(255 255 255 / 0.07);
+  --code-bg: #060a14;
+  --shadow: 0 1px 2px rgb(0 0 0 / 0.3), 0 10px 30px rgb(0 0 0 / 0.35);
+  color-scheme: dark;
+}

@@ -1,0 +1,58 @@
+---
+import { site } from '../site.config';
+import Icon from './Icon.astro';
+const { links, github, cta } = site.nav;
+---
+<header class="nav" data-nav>
+  <div class="container nav__inner">
+    <a class="nav__brand" href="/"><img src={site.logo} alt="" width="28" height="28" />{site.name}</a>
+    <nav class="nav__links" aria-label="Main">
+      {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    </nav>
+    <div class="nav__right">
+      {github.repo && (
+        <a class="nav__gh" href={`https://github.com/${github.repo}`} target="_blank" rel="noopener">
+          <Icon name="github" />
+          {github.showStars && <span class="nav__stars" data-stars={github.repo}><Icon name="star" class="icon sm" /><span>Star</span></span>}
+        </a>
+      )}
+      <button class="nav__icon-btn" type="button" data-theme-toggle aria-label="Toggle dark mode">
+        <Icon name="sun" class="icon sun" /><Icon name="moon" class="icon moon" />
+      </button>
+      <a class="btn btn--primary nav__cta" href={cta.href}>{cta.label}</a>
+      <button class="nav__icon-btn nav__menu" type="button" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <Icon name="menu" />
+      </button>
+    </div>
+  </div>
+  <div class="nav__mobile" id="mobile-menu" hidden>
+    {links.map((l) => <a href={l.href}>{l.label}</a>)}
+    <a class="btn btn--primary" href={cta.href}>{cta.label}</a>
+  </div>
+</header>
+
+<style>
+  .nav { position: sticky; top: 0; z-index: 50; transition: background var(--fast), box-shadow var(--fast), backdrop-filter var(--fast); }
+  .nav.is-scrolled { background: color-mix(in srgb, var(--bg) 82%, transparent); backdrop-filter: blur(14px); box-shadow: 0 1px 0 var(--line-soft); }
+  .nav__inner { display: flex; align-items: center; gap: 32px; height: 72px; }
+  .nav__brand { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 1.25rem; letter-spacing: -0.02em; }
+  .nav__links { display: flex; gap: 28px; font-size: var(--t-sm); font-weight: 600; color: var(--text-2); }
+  .nav__links a:hover { color: var(--text); }
+  .nav__right { margin-left: auto; display: flex; align-items: center; gap: 10px; }
+  .nav__gh { display: inline-flex; align-items: center; gap: 8px; height: 38px; padding: 0 14px; border: 1px solid var(--line); border-radius: var(--r-pill); font-size: var(--t-sm); font-weight: 600; }
+  .nav__stars { display: inline-flex; align-items: center; gap: 4px; padding-left: 8px; border-left: 1px solid var(--line); color: var(--text-2); }
+  .nav__stars :global(.sm) { width: 12px; height: 12px; }
+  .nav__icon-btn { display: grid; place-items: center; width: 38px; height: 38px; border-radius: 50%; border: 1px solid var(--line); background: transparent; color: var(--text); cursor: pointer; }
+  .nav__icon-btn:hover { background: var(--surface-2); }
+  .nav__cta { height: 38px; padding: 0 18px; }
+  :global([data-theme='dark'] .sun), :global([data-theme='light'] .moon) { display: none; }
+  .nav__menu { display: none; }
+  .nav__mobile { display: flex; flex-direction: column; gap: 4px; padding: 12px var(--gutter) 24px; background: var(--bg); border-bottom: 1px solid var(--line-soft); }
+  .nav__mobile[hidden] { display: none; }
+  .nav__mobile a:not(.btn) { padding: 12px 0; font-weight: 600; border-bottom: 1px solid var(--line-soft); }
+  .nav__mobile .btn { margin-top: 12px; justify-content: center; }
+  @media (max-width: 900px) {
+    .nav__links, .nav__cta, .nav__gh { display: none; }
+    .nav__menu { display: grid; }
+  }
+</style>

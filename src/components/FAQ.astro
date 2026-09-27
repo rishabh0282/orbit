@@ -1,0 +1,30 @@
+---
+import { site } from '../site.config';
+import SectionHead from './SectionHead.astro';
+const f = site.faq;
+---
+<section class="section" id="faq">
+  <div class="container faq">
+    <SectionHead eyebrow={f.eyebrow} title={f.title} />
+    <div class="faq__list">
+      {f.items.map((item) => (
+        <details class="reveal" name="faq">
+          <summary>{item.q}<span class="faq__plus" aria-hidden="true"></span></summary>
+          <p>{item.a}</p>
+        </details>
+      ))}
+    </div>
+  </div>
+</section>
+<style>
+  .faq { display: grid; grid-template-columns: 1fr 1.4fr; gap: 64px; align-items: start; }
+  details { border-bottom: 1px solid var(--line); }
+  summary { list-style: none; display: flex; justify-content: space-between; align-items: center; gap: 24px; padding: 24px 0; font-weight: 700; font-size: 1.0625rem; cursor: pointer; }
+  summary::-webkit-details-marker { display: none; }
+  .faq__plus { position: relative; width: 16px; height: 16px; flex: none; }
+  .faq__plus::before, .faq__plus::after { content: ''; position: absolute; left: 0; top: 7px; width: 16px; height: 2px; background: currentColor; transition: transform var(--fast) var(--ease); }
+  .faq__plus::after { transform: rotate(90deg); }
+  details[open] .faq__plus::after { transform: rotate(0); }
+  details p { color: var(--text-2); padding-bottom: 24px; max-width: 60ch; }
+  @media (max-width: 900px) { .faq { grid-template-columns: 1fr; gap: 0; } }
+</style>

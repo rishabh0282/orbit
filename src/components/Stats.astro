@@ -1,0 +1,24 @@
+---
+import { site } from '../site.config';
+---
+<section class="stats">
+  <div class="container stats__grid">
+    {site.stats.map((s) => (
+      <div class="stat reveal">
+        <div class="stat__value">
+          {s.prefix}<span data-count={s.value} data-decimals={s.decimals ?? 0}>{s.value}</span>{s.suffix}
+        </div>
+        <div class="stat__label">{s.label}</div>
+      </div>
+    ))}
+  </div>
+</section>
+<style>
+  .stats { border-block: 1px solid var(--line-soft); }
+  .stats__grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat { padding: 40px 24px; text-align: center; }
+  .stat + .stat { border-left: 1px solid var(--line-soft); }
+  .stat__value { font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+  .stat__label { font: 600 var(--t-xs)/1.4 var(--font-mono); text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-3); margin-top: 6px; }
+  @media (max-width: 700px) { .stats__grid { grid-template-columns: repeat(2, 1fr); } .stat:nth-child(3) { border-left: 0; } .stat:nth-child(n+3) { border-top: 1px solid var(--line-soft); } }
+</style>

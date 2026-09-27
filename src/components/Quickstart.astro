@@ -1,0 +1,40 @@
+---
+import { site } from '../site.config';
+import Icon from './Icon.astro';
+import SectionHead from './SectionHead.astro';
+const q = site.quickstart;
+---
+<section class="section" id="quickstart">
+  <div class="container">
+    <SectionHead eyebrow={q.eyebrow} title={q.title} />
+    <div class="qs reveal" data-tabs>
+      <div class="qs__bar" role="tablist">
+        <span class="qs__dots"><i></i><i></i><i></i></span>
+        {q.tabs.map((t, i) => (
+          <button role="tab" type="button" id={`qs-tab-${i}`} aria-controls={`qs-panel-${i}`} aria-selected={i === 0 ? 'true' : 'false'} tabindex={i === 0 ? 0 : -1}>{t.label}</button>
+        ))}
+      </div>
+      {q.tabs.map((t, i) => (
+        <div class="qs__panel" role="tabpanel" id={`qs-panel-${i}`} aria-labelledby={`qs-tab-${i}`} hidden={i !== 0}>
+          <pre><code>{t.code}</code></pre>
+          <button class="qs__copy" type="button" data-copy aria-label="Copy code"><Icon name="copy" /><span>Copy</span></button>
+        </div>
+      ))}
+    </div>
+    {q.note && <p class="qs__note reveal">{q.note}</p>}
+  </div>
+</section>
+<style>
+  .qs { max-width: 860px; background: var(--code-bg); color: var(--code-text); border-radius: var(--r-lg); overflow: hidden; box-shadow: var(--shadow); }
+  .qs__bar { display: flex; align-items: center; gap: 4px; padding: 10px 14px; border-bottom: 1px solid rgb(255 255 255 / 0.08); }
+  .qs__dots { display: flex; gap: 6px; margin-right: 14px; }
+  .qs__dots i { width: 10px; height: 10px; border-radius: 50%; background: rgb(255 255 255 / 0.18); }
+  .qs__bar button { font: 600 var(--t-sm) var(--font-mono); color: rgb(255 255 255 / 0.55); background: none; border: 0; padding: 8px 12px; border-radius: var(--r-md); cursor: pointer; }
+  .qs__bar button[aria-selected='true'] { color: #fff; background: rgb(255 255 255 / 0.08); }
+  .qs__panel { position: relative; }
+  pre { margin: 0; padding: 28px; overflow-x: auto; font-size: 0.9rem; line-height: 1.7; }
+  pre code::before { content: '$ '; color: var(--accent); }
+  .qs__copy { position: absolute; top: 14px; right: 14px; display: inline-flex; align-items: center; gap: 6px; font: 600 var(--t-xs) var(--font-mono); color: rgb(255 255 255 / 0.7); background: rgb(255 255 255 / 0.08); border: 0; padding: 7px 10px; border-radius: var(--r-md); cursor: pointer; }
+  .qs__copy:hover { color: #fff; }
+  .qs__note { margin-top: 18px; color: var(--text-3); font-size: var(--t-sm); }
+</style>
