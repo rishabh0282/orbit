@@ -1,8 +1,10 @@
-# Orbit - landing page template (Astro)
+# Orbit
 
-A reusable, fast marketing/landing page template. Design system inspired by the
+A reusable, fast Astro marketing/landing page starter. Design system inspired by the
 open-wa.org landing page (big editorial type, one accent colour, grid background,
 subtle motion, light + dark themes). All markup, CSS and JS here are written fresh.
+
+Repository: https://github.com/rishabh0282/orbit
 
 ## Run
 ```bash

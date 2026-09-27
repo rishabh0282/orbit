@@ -1,7 +1,7 @@
 /**
  * site.config.ts — the ONE file to edit when reusing this template.
  * All text, links and section toggles live here. Colours/fonts live in src/styles/tokens.css.
- * Everything below is placeholder content.
+ * The default content describes Orbit and can be customized for a new project.
  */
 
 export type Feature = { icon: IconName; title: string; body: string };
@@ -9,10 +9,10 @@ export type IconName =
   | 'bolt' | 'shield' | 'plug' | 'server' | 'code' | 'chat' | 'layers' | 'globe' | 'heart' | 'star' | 'check' | 'github';
 
 export const site = {
-  name: 'Acme',
+  name: 'Orbit',
   tagline: 'The open platform for building fast',
-  description: 'Acme is a self-hosted platform that gives developers full control, a clean architecture and zero lock-in.',
-  url: 'https://example.com',
+  description: 'Orbit is a self-hosted platform that gives developers full control, a clean architecture and zero lock-in.',
+  url: 'https://rishabh0282.github.io/orbit',
   logo: '/logo.svg',
   ogImage: '/og.png',
 
@@ -24,7 +24,7 @@ export const site = {
       { label: 'FAQ', href: '#faq' },
     ],
     // Optional GitHub button with live star count. Set repo to '' to hide.
-    github: { repo: 'withastro/astro', showStars: true },
+    github: { repo: 'rishabh0282/orbit', showStars: true },
     cta: { label: 'Get started', href: '#quickstart' },
   },
 
@@ -35,7 +35,7 @@ export const site = {
     highlightLines: [1, 2], // indexes of titleLines drawn in the accent colour
     lead: 'A self-hosted platform for developers who want to own their stack — <strong>full control</strong>, a clean architecture and <strong>zero lock-in</strong>.',
     primary: { label: 'Get started', href: '#quickstart' },
-    secondary: { label: 'View on GitHub', href: 'https://github.com/' },
+    secondary: { label: 'View on GitHub', href: 'https://github.com/rishabh0282/orbit' },
     points: ['100% free', 'Open source', 'Self-hosted', 'Production ready'],
     // Icons orbiting the logo in the hero diagram (desktop only)
     orbit: ['server', 'shield', 'chat', 'layers', 'plug', 'globe'] as IconName[],
@@ -65,7 +65,7 @@ export const site = {
   compare: {
     eyebrow: 'Compare',
     title: 'How we stack up',
-    columns: ['Acme', 'Hosted SaaS', 'DIY'],
+    columns: ['Orbit', 'Hosted SaaS', 'DIY'],
     highlight: 0,
     rows: [
       { label: 'Self-hosted', values: [true, false, true] },
@@ -80,8 +80,8 @@ export const site = {
     eyebrow: 'Quickstart',
     title: 'Up and running in minutes',
     tabs: [
-      { label: 'Docker', lang: 'bash', code: 'docker run -d -p 3000:3000 acme/acme:latest' },
-      { label: 'npm', lang: 'bash', code: 'npm install -g acme\nacme start' },
+      { label: 'Docker', lang: 'bash', code: 'docker run -d -p 3000:3000 orbit/orbit:latest' },
+      { label: 'npm', lang: 'bash', code: 'npm install -g orbit\norbit start' },
       { label: 'cURL', lang: 'bash', code: 'curl -X POST http://localhost:3000/api/hello \\\n  -H "X-API-Key: $KEY" \\\n  -d \'{"name":"world"}\'' },
     ],
     note: 'Open http://localhost:3000 once the container is running.',
@@ -119,8 +119,8 @@ export const site = {
     columns: [
       { title: 'Product', links: [{ label: 'Features', href: '#features' }, { label: 'Quickstart', href: '#quickstart' }] },
       { title: 'Resources', links: [{ label: 'Docs', href: '#' }, { label: 'Changelog', href: '#' }] },
-      { title: 'Community', links: [{ label: 'GitHub', href: 'https://github.com/' }, { label: 'Discord', href: '#' }] },
+      { title: 'Community', links: [{ label: 'GitHub', href: 'https://github.com/rishabh0282/orbit' }, { label: 'Discord', href: '#' }] },
     ],
-    copyright: `© ${new Date().getFullYear()} Acme. MIT licensed.`,
+    copyright: `© ${new Date().getFullYear()} Orbit. MIT licensed.`,
   },
 };
